@@ -1,5 +1,7 @@
+const serverUrl = import.meta.env.SERVER_URL;
+
 export const getVideoInfo = async (url: string) => {
-  const response = await fetch("http://localhost:3000/api/info", {
+  const response = await fetch(serverUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ url }),
@@ -13,7 +15,7 @@ export const getVideoInfo = async (url: string) => {
 };
 
 export const downloadVideo = async (url: string, format = "mp4") => {
-  const response = await fetch("http://localhost:3000/api/download", {
+  const response = await fetch(serverUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ url, format }),
