@@ -1,6 +1,7 @@
 const serverUrl = import.meta.env.SERVER_URL;
 
 export const getVideoInfo = async (url: string) => {
+  console.log(serverUrl);
   const response = await fetch(serverUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
