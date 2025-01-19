@@ -1,7 +1,7 @@
-const serverUrl = import.meta.env.VITE_SERVER_URL;
+const serverUrl = `${import.meta.env.VITE_SERVER_URL}/api`;
 
 export const getVideoInfo = async (url: string) => {
-  const response = await fetch(serverUrl, {
+  const response = await fetch(`${serverUrl}/info`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ url }),
@@ -15,7 +15,7 @@ export const getVideoInfo = async (url: string) => {
 };
 
 export const downloadVideo = async (url: string, format = "mp4") => {
-  const response = await fetch(serverUrl, {
+  const response = await fetch(`${serverUrl}/download`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ url, format }),
